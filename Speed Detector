@@ -1,0 +1,23 @@
+function detectSpeed() {
+  const speed = parseInt(prompt("Enter the speed of the car (km/h):"), 10);
+
+  if (isNaN(speed) || speed < 0) {
+    return "Invalid input! Please enter a positive number.";
+  }
+
+  const speedLimit = 70;
+  const demeritThreshold = 5;
+
+  if (speed <= speedLimit) {
+    return "Ok";
+  } else {
+    const points = Math.floor((speed - speedLimit) / demeritThreshold);
+    if (points > 12) {
+      return "License suspended";
+    }
+    return `Points: ${points}`;
+  }
+}
+
+// Call the function to test
+console.log(detectSpeed());
